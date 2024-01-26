@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://b33phw1sfyhyf"]
+
+[ext_resource type="Script" path="res://generate_question.gd" id="1_b4y5i"]
+[ext_resource type="Script" path="res://Questions/new_script.gd" id="2_vtf3o"]
+
+[node name="QuestionGenerator" type="Node2D"]
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("1_b4y5i")
+
+[node name="Easy_unit_cir_QA" type="Node" parent="."]
+script = ExtResource("2_vtf3o")
