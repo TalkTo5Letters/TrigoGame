@@ -39,8 +39,9 @@ func _physics_process(delta):
 			_animated_sprite.play("move_right")
 		"(-1, 0)":
 			_animated_sprite.play("move_left")
+		"(0, 0)":
+			_animated_sprite.stop()
 			
-	if input_buffer_readout.x + input_buffer_readout.y == 0: _animated_sprite.stop()
 	if Input.is_action_pressed("sprint"): 
 		_animated_sprite.set_speed_scale(1.5)
 		Player.velocity = input_buffer_readout * speed * delta * 1.5
