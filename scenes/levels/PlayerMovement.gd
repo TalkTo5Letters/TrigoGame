@@ -1,15 +1,15 @@
 extends Node2D
-@onready var _animated_sprite = $"../CharacterBody2D/AnimatedSprite2D"
+@onready var _animated_sprite = $"../AnimatedSprite2D"
 
 var input: String
+var velocity:Vector2
 @onready var Player = $".." #Sets parent's name to Player
 
 func _process(delta): 
-	var velocity: float = 250 * delta #4 pixels per second
-	input = getInputAndAction(velocity) #Calls Input function which calls action funciton, stores last input
-	print(input)
-
-func getInputAndAction(velocity) -> String:
+	var speed: int = 12000 * delta #4 pixels per second
+	input = getInputAndAction(speed) #Calls Input function which calls action funciton, stores last input
+	
+func getInputAndAction(speed) -> String:
 	if Input.is_action_just_pressed("forward"):
 		input = "forward"
 	elif Input.is_action_just_pressed("backward"):
@@ -21,58 +21,70 @@ func getInputAndAction(velocity) -> String:
 		
 	if input != "":
 		if !Input.is_action_pressed(input): input = ""
-		else: action(velocity)
+		else: action(speed)
 	else:
 		_animated_sprite.stop()
 	return input
 
-func action(velocity):
+func action(speed):
 	match input:
 		"forward":
-			forward(velocity, Input.is_action_pressed("sprint"))
+			velocity = Vector2(0, -speed)
+			forward(Input.is_action_pressed("sprint"))
 		"backward":
-			backward(velocity, Input.is_action_pressed("sprint"))
+			velocity = Vector2(0, speed)
+			backward(Input.is_action_pressed("sprint"))
 		"left":
-			left(velocity, Input.is_action_pressed("sprint"))
+			velocity = Vector2(-speed, 0)
+			left(Input.is_action_pressed("sprint"))
 		"right":
-			right(velocity, Input.is_action_pressed("sprint"))
+			velocity = Vector2(speed, 0)
+			right(Input.is_action_pressed("sprint"))
+	print(velocity)
 		
-func forward(velocity, sprint):
+func forward(sprint):
 	if sprint:
-		Player.position.y -= velocity * 1.5
-		_animated_sprite.set_speed_scale(1.5)
+		Player.velocity = velocity * 1.5
+		Player.move_and_slide()
 		_animated_sprite.play("move_up")
 	else:
-		Player.position.y -= velocity
+		Player.velocity = velocity
+		Player.move_and_slide()
 		_animated_sprite.set_speed_scale(1)
 		_animated_sprite.play("move_up")
 	
-func backward(velocity, sprint):
+func backward(sprint):
 	if sprint:
-		Player.position.y += velocity * 1.5
+		Player.velocity = velocity * 1.5
+		Player.move_and_slide()
 		_animated_sprite.set_speed_scale(1.5)
 		_animated_sprite.play("move_down")
 	else:
-		Player.position.y += velocity
+		Player.velocity = velocity
+		Player.move_and_slide()
 		_animated_sprite.play("move_down")
 		
-func left(velocity, sprint):
+func left(sprint):
 	if sprint:
-		Player.position.x -= velocity * 1.5
+		Player.velocity = velocity * 1.5
+		Player.move_and_slide()
 		_animated_sprite.set_speed_scale(1.5)
 		_animated_sprite.play("move_left")
 	else:
-		Player.position.x -= velocity
+		Player.velocity = velocity
+		Player.move_and_slide()
 		_animated_sprite.set_speed_scale(1)
 		_animated_sprite.play("move_left")
 		
-func right(velocity, sprint):
+func right(sprint):
 	if sprint:
-		Player.position.x += velocity * 1.5
+		Player.velocity = velocity * 1.5
+		Player.move_and_slide()
 		_animated_sprite.set_speed_scale(1.5)
 		_animated_sprite.play("move_right")
 	else:
-		Player.position.x += velocity
+		Player.velocity = velocity
+		Player.move_and_slide()
 		_animated_sprite.set_speed_scale(1)
 		_animated_sprite.play("move_right")
 
