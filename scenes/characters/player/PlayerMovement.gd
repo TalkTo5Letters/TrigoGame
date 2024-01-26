@@ -1,12 +1,16 @@
 extends Node2D
-@onready var _animated_sprite = $"../AnimatedSprite2D"
+var Player
+var speed: int
+var input_buffer
+var input_buffer_readout
+var Player_Animation
 
-var velocity:Vector2
-@onready var Player = $".." #Sets parent's name to Player
-@export var speed:int = 12500
-
-var input_buffer = [Vector2.ZERO]
-var input_buffer_readout = Vector2()
+func _ready():
+	Player_Animation = $"../PlayerAnimation"
+	Player = $".." #Sets parent's name to Player
+	speed = 12500
+	input_buffer = [Vector2.ZERO]
+	input_buffer_readout = Vector2()
 
 func _physics_process(delta):
 	#checks for keypresses, if found, append to bufferc
@@ -30,23 +34,13 @@ func _physics_process(delta):
 		input_buffer.erase(Vector2.DOWN)
 
 	input_buffer_readout = input_buffer[-1]
-	match str(input_buffer_readout):
-		"(0, -1)":
-			_animated_sprite.play("move_up")
-		"(0, 1)":
-			_animated_sprite.play("move_down")
-		"(1, 0)":
-			_animated_sprite.play("move_right")
-		"(-1, 0)":
-			_animated_sprite.play("move_left")
-		"(0, 0)":
-			_animated_sprite.stop()
 			
 	if Input.is_action_pressed("sprint"): 
-		_animated_sprite.set_speed_scale(1.5)
 		Player.velocity = input_buffer_readout * speed * delta * 1.5
 		Player.move_and_slide()
 	else:
-		_animated_sprite.set_speed_scale(1)
 		Player.velocity = input_buffer_readout * speed * delta
 		Player.move_and_slide()
+	
+	Player_Animation.update_animation_parameters(input_buffer_readout, Input.is_action_pressed("sprint"))
+	Player_Animation.state_machine_state(input_buffer_readout)

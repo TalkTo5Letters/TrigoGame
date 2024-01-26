@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://b2bctp55rqvf8"
+path="res://.godot/imported/Fated_Meeting.dialogue-49096c057b610f12604333bfad9a1eee.tres"
+
+[deps]
+
+source_file="res://Dialogue/level1/Sakura/Fated_Meeting.dialogue"
+dest_files=["res://.godot/imported/Fated_Meeting.dialogue-49096c057b610f12604333bfad9a1eee.tres"]
+
+[params]
+
+defaults=true

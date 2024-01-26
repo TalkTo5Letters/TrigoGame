@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://derasjdfxdftu"
+path="res://.godot/imported/text_prompt.dialogue-074d411b7f4b9d38435c17f602850d8c.tres"
+
+[deps]
+
+source_file="res://Dialogue/misc/text_prompt.dialogue"
+dest_files=["res://.godot/imported/text_prompt.dialogue-074d411b7f4b9d38435c17f602850d8c.tres"]
+
+[params]
+
+defaults=true

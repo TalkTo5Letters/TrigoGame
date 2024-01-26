@@ -1,0 +1,33 @@
+~ A_fated_meeting
+if has_met_shiina == false:
+	set has_met_shiina = true
+	Sakurai: ...Um
+	???: Ararara~
+	Sakurai: ?!
+	???: Hello there my child? Art thou stuck in thy dimension?
+	Sakurai: "Thy"? 
+	???: Arere? Oh. my bad sweetie. I meant this dimension. What is your name my child?
+	- ...My name is Sakurai
+		???: Sakurai huh? As courtesy, I believe i should reveal mine too.
+		Shiina: This young lady's name is Shiina. What a beautiful name you have, Sakurai-san
+	- Why should I tell you?
+		???: Ohohoho~ Then I shall tell you mine first. My name is Shiina. 
+		Shiina: Now that I have introduced myself, can you tell me your name in return, little lady?
+		Sakurai: ... *sigh* My name is Sakurai
+		Shiina: Sakurai huh, what a beautiful name you have
+		Shiina: Anyhow, might there be a problem? Your face seems a little bothered...
+		- Its none of your business
+			Shiina: That's a shame then. I'll be waiting for you here if you want to share more about yourself.
+			=> END
+		- ..where am I?
+		
+else:
+	Shiina: Hello there little one.
+	Shiina: Seeing that your back, are you ready to open up to this young lady as to whats been bothering you now?
+	- Its none of your business
+			Shiina: That's a shame then. I'll be waiting for you here if you want to share more about yourself.
+			=> END
+	- ...where am I?
+	
+Shiina: You're inside a dream, my child.
+=> END
