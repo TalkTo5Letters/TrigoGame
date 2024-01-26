@@ -148,6 +148,7 @@ animations = [{
 size = Vector2(23, 27)
 
 [node name="Player" type="CharacterBody2D"]
+collision_priority = 2.0
 script = ExtResource("1_2lq2n")
 
 [node name="PlayerMovement" type="Node2D" parent="."]
@@ -160,3 +161,6 @@ animation = &"move_down"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_b3fnm")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2.5, 2.5)

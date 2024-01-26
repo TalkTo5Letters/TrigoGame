@@ -1,24 +1,35 @@
-[gd_scene load_steps=4 format=3 uid="uid://cbvx64mgfep1d"]
+[gd_scene load_steps=5 format=3 uid="uid://cbvx64mgfep1d"]
 
 [ext_resource type="Texture2D" uid="uid://dkk4lnkgrxcl6" path="res://graphics/icon.svg" id="1_0yrqt"]
-[ext_resource type="PackedScene" uid="uid://t3sr75pxjqim" path="res://scenes/characters/player/player.tscn" id="2_jvsqn"]
+[ext_resource type="Script" path="res://scenes/levels/teleport.gd" id="2_cufdn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l52bx"]
-size = Vector2(128, 128)
+size = Vector2(119, 117)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pmj4v"]
+size = Vector2(117, 8)
 
 [node name="level1" type="Node2D"]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(145, 85)
+disable_mode = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
 texture = ExtResource("1_0yrqt")
 region_rect = Rect2(45.5, 34.5, 30, 26)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1.5, -0.5)
 shape = SubResource("RectangleShape2D_l52bx")
 
-[node name="Player" parent="." instance=ExtResource("2_jvsqn")]
+[node name="Area2D" type="Area2D" parent="StaticBody2D"]
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(2.5, 2.5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Area2D"]
+position = Vector2(-0.5, -64)
+shape = SubResource("RectangleShape2D_pmj4v")
+
+[node name="teleport" type="Node" parent="StaticBody2D/Area2D/CollisionShape2D"]
+script = ExtResource("2_cufdn")
+
+[connection signal="body_entered" from="StaticBody2D/Area2D" to="StaticBody2D/Area2D/CollisionShape2D/teleport" method="_on_area_2d_body_entered"]

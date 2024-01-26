@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Trigo Game"
-run/main_scene="res://scenes/characters/player/player.tscn"
+run/main_scene="res://scenes/levels/level1.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://graphics/icon.svg"
+
+[autoload]
+
+Player="*res://scenes/characters/player/player.tscn"
 
 [input]
 
