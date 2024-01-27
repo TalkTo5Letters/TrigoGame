@@ -6,8 +6,6 @@ var rgen = RandomNumberGenerator.new()
 func _ready():
 	easy_unitcir_QA = $Easy_unit_cir_QA
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 

@@ -1,15 +1,16 @@
 extends Control
-var generator
-var data
+
+signal answer_state(state)
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	generator = $GridContainer
-	generate_field(data)
+	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 
-func generate_field(data):
-	generator.get_choice_list(data)
+
+func _on_color_rect_answer_state(state):
+	answer_state.emit(state)

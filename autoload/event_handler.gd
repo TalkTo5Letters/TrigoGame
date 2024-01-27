@@ -1,4 +1,3 @@
 extends Node
 
-signal fight_begin(enemy_type)
-signal fight_end()
+signal answer_state(state)

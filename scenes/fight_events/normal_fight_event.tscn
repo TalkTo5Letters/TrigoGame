@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://b6ixm6w4800xs"]
+[gd_scene load_steps=9 format=3 uid="uid://b6ixm6w4800xs"]
 
 [ext_resource type="Script" path="res://scenes/fight_events/normal_fight_event.gd" id="1_8f857"]
 [ext_resource type="Texture2D" uid="uid://bojbiuccr6f84" path="res://graphics/vlcsnap_2023_12_01_10h37m31s394.0.jpg" id="1_g14fb"]
 [ext_resource type="PackedScene" uid="uid://b33phw1sfyhyf" path="res://Questions/question_generator.tscn" id="2_ttiqy"]
 [ext_resource type="Script" path="res://scenes/fight_events/Button.gd" id="4_sfnrk"]
 [ext_resource type="Script" path="res://scenes/fight_events/Button2.gd" id="5_io6vd"]
+[ext_resource type="Script" path="res://scenes/fight_events/check_ans.gd" id="6_wq3mh"]
+[ext_resource type="Script" path="res://scenes/fight_events/enemy_stat.gd" id="7_pmpr5"]
+[ext_resource type="AudioStream" uid="uid://d0yrsyu84klmy" path="res://Music/Josh Hutcherson Whistle.mp3" id="8_qnuew"]
 
 [node name="normal_fight_event" type="Control"]
 layout_mode = 3
@@ -51,3 +54,18 @@ offset_bottom = 706.0
 theme_override_font_sizes/font_size = 50
 text = "Restart"
 script = ExtResource("5_io6vd")
+
+[node name="check_ans" type="Node2D" parent="."]
+script = ExtResource("6_wq3mh")
+
+[node name="enemy_stat" type="Node2D" parent="."]
+script = ExtResource("7_pmpr5")
+
+[node name="ProgressBar" type="ProgressBar" parent="enemy_stat"]
+offset_right = 428.0
+offset_bottom = 27.0
+max_value = 250.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_qnuew")
+autoplay = true

@@ -14,10 +14,10 @@ script = ExtResource("1_kl678")
 
 [node name="GridContainer" type="GridContainer" parent="."]
 layout_mode = 0
-offset_left = -358.0
-offset_top = 107.0
-offset_right = -269.0
-offset_bottom = 150.0
+offset_left = -535.0
+offset_top = 46.0
+offset_right = 539.0
+offset_bottom = 228.0
 columns = 2
 script = ExtResource("1_df3mn")
 

@@ -1,15 +1,14 @@
-extends Control
-var generator
-var data
+extends Node2D
+var hp
+var enemy_type = Global.enemy_type
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	generator = $GridContainer
-	generate_field(data)
-
+	match enemy_type:
+		1:
+			hp = 50
+	$ProgressBar.value = hp
+	$ProgressBar.max_value = hp
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
-
-func generate_field(data):
-	generator.get_choice_list(data)
