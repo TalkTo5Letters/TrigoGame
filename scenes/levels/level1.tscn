@@ -1,11 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://cbvx64mgfep1d"]
+[gd_scene load_steps=12 format=3 uid="uid://cbvx64mgfep1d"]
 
 [ext_resource type="Texture2D" uid="uid://dkk4lnkgrxcl6" path="res://graphics/icon.svg" id="1_0yrqt"]
 [ext_resource type="Script" path="res://scenes/levels/teleport.gd" id="2_cufdn"]
 [ext_resource type="PackedScene" uid="uid://b54d1hmerafoo" path="res://scenes/objects/tree.tscn" id="3_joutt"]
-[ext_resource type="PackedScene" uid="uid://cifiy8es1bwwv" path="res://scenes/characters/player/partner.tscn" id="4_eyvx6"]
+[ext_resource type="PackedScene" uid="uid://k1mdovrk8cr7" path="res://scenes/characters/partner/partner.tscn" id="4_6kuqe"]
 [ext_resource type="Script" path="res://scenes/levels/Node2D2.gd" id="5_ukpkr"]
 [ext_resource type="PackedScene" uid="uid://t3sr75pxjqim" path="res://scenes/characters/player/player.tscn" id="6_o8ocg"]
+[ext_resource type="Script" path="res://scenes/levels/fight_scene.gd" id="7_fh3sg"]
+[ext_resource type="Script" path="res://scenes/characters/player/player.gd" id="7_wu3wp"]
+[ext_resource type="PackedScene" uid="uid://bf48yrxyt7h25" path="res://scenes/characters/enemy1/enemy1.tscn" id="8_tv7ec"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l52bx"]
 size = Vector2(119, 117)
@@ -38,15 +41,26 @@ script = ExtResource("2_cufdn")
 
 [node name="Tree" parent="." instance=ExtResource("3_joutt")]
 
-[node name="Node2D" parent="." instance=ExtResource("4_eyvx6")]
-position = Vector2(-98, 126)
-disable_mode = 1
-platform_on_leave = 2
+[node name="Node2D" parent="." instance=ExtResource("4_6kuqe")]
+position = Vector2(-204, 122)
 
 [node name="Node2D2" type="Node2D" parent="."]
 script = ExtResource("5_ukpkr")
 
 [node name="Player" parent="." instance=ExtResource("6_o8ocg")]
+position = Vector2(-111, -31)
+script = ExtResource("7_wu3wp")
+
+[node name="enemy1" parent="." instance=ExtResource("8_tv7ec")]
+position = Vector2(120, 223)
+
+[node name="fight_scene" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("7_fh3sg")
 
 [connection signal="body_entered" from="StaticBody2D/Area2D" to="StaticBody2D/Area2D/CollisionShape2D/teleport" method="_on_area_2d_body_entered"]
 [connection signal="dialogue_pop_up" from="Node2D" to="Node2D2" method="_on_node_2d_dialogue_pop_up"]
+[connection signal="fight_event" from="enemy1" to="fight_scene" method="_on_enemy_1_fight_event"]

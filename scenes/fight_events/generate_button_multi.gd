@@ -5,7 +5,6 @@ var drag_preview = preload("res://scenes/fight_events/multiplechoice_drag_previe
 func _ready():
 	pass # Replace with function body.
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bur6jj2q7rytn"]
 
-[ext_resource type="Script" path="res://Control.gd" id="1_68ryq"]
+[ext_resource type="Script" path="res://scenes/fight_events/generate_button_multi.gd" id="1_mxaa8"]
 
 [node name="Control" type="Button"]
 custom_minimum_size = Vector2(216, 72)
@@ -11,4 +11,4 @@ offset_right = -680.0
 offset_bottom = -648.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_68ryq")
+script = ExtResource("1_mxaa8")

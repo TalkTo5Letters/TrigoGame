@@ -1,10 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6ixm6w4800xs"]
+[gd_scene load_steps=6 format=3 uid="uid://b6ixm6w4800xs"]
 
 [ext_resource type="Script" path="res://scenes/fight_events/normal_fight_event.gd" id="1_8f857"]
 [ext_resource type="Texture2D" uid="uid://bojbiuccr6f84" path="res://graphics/vlcsnap_2023_12_01_10h37m31s394.0.jpg" id="1_g14fb"]
 [ext_resource type="PackedScene" uid="uid://b33phw1sfyhyf" path="res://Questions/question_generator.tscn" id="2_ttiqy"]
+[ext_resource type="Script" path="res://scenes/fight_events/Button.gd" id="4_sfnrk"]
+[ext_resource type="Script" path="res://scenes/fight_events/Button2.gd" id="5_io6vd"]
 
-[node name="Fight_event" type="Node2D"]
+[node name="normal_fight_event" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_8f857")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -19,6 +23,7 @@ position = Vector2(540, 360)
 
 [node name="Label" type="Label" parent="."]
 custom_minimum_size = Vector2(648, 144)
+layout_mode = 0
 offset_left = 241.0
 offset_top = 9.0
 offset_right = 889.0
@@ -26,3 +31,23 @@ offset_bottom = 153.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 42
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 603.0
+offset_top = 627.0
+offset_right = 707.0
+offset_bottom = 704.0
+theme_override_font_sizes/font_size = 50
+text = "Run"
+script = ExtResource("4_sfnrk")
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 778.0
+offset_top = 629.0
+offset_right = 962.0
+offset_bottom = 706.0
+theme_override_font_sizes/font_size = 50
+text = "Restart"
+script = ExtResource("5_io6vd")

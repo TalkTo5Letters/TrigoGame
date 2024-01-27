@@ -19,6 +19,9 @@ config/icon="res://graphics/icon.svg"
 
 DialogueState="*res://Dialogue/dialogue_state.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+EventHandler="*res://autoload/event_handler.gd"
+Global="*res://autoload/global.gd"
+KillList="*res://autoload/kill_list.gd"
 
 [dialogue_manager]
 

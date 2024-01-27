@@ -13,6 +13,7 @@ offset_bottom = 360.0
 script = ExtResource("1_kl678")
 
 [node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 0
 offset_left = -358.0
 offset_top = 107.0
 offset_right = -269.0

@@ -1,6 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://cifiy8es1bwwv"]
+[gd_scene load_steps=5 format=3 uid="uid://k1mdovrk8cr7"]
 
-[ext_resource type="Texture2D" uid="uid://bt2dvsfgwwnfk" path="res://graphics/Untitled.png" id="2_ij1ni"]
+[ext_resource type="Texture2D" uid="uid://bt2dvsfgwwnfk" path="res://graphics/Untitled.png" id="1_20mwa"]
+
+[sub_resource type="GDScript" id="GDScript_3pjbr"]
+script/source = "extends CharacterBody2D
+
+signal dialogue_pop_up
+
+func _on_area_2d_body_entered(body):
+	dialogue_pop_up.emit() 
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ljspv"]
 size = Vector2(24, 32)
@@ -18,9 +27,10 @@ slide_on_ceiling = false
 floor_block_on_wall = false
 platform_floor_layers = 4294967044
 platform_wall_layers = 4
+script = SubResource("GDScript_3pjbr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_ij1ni")
+texture = ExtResource("1_20mwa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 light_mask = 4

@@ -5,7 +5,6 @@ var rgen = RandomNumberGenerator.new()
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	easy_unitcir_QA = $Easy_unit_cir_QA
-	get_question(1)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -13,6 +12,7 @@ func _process(delta):
 	pass
 
 func get_question(type):
+	print(type)
 	match type:
 		1: #unit circle qustion
 			var rng = rgen.randi_range(1, 1)
