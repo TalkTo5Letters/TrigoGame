@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6ixm6w4800xs"]
+
+[ext_resource type="Script" path="res://scenes/fight_events/normal_fight_event.gd" id="1_8f857"]
+[ext_resource type="Texture2D" uid="uid://bojbiuccr6f84" path="res://graphics/vlcsnap_2023_12_01_10h37m31s394.0.jpg" id="1_g14fb"]
+[ext_resource type="PackedScene" uid="uid://b33phw1sfyhyf" path="res://Questions/question_generator.tscn" id="2_ttiqy"]
+
+[node name="Fight_event" type="Node2D"]
+script = ExtResource("1_8f857")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(543, 334)
+texture = ExtResource("1_g14fb")
+
+[node name="QuestionGenerator" parent="." instance=ExtResource("2_ttiqy")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(540, 360)
+
+[node name="Label" type="Label" parent="."]
+custom_minimum_size = Vector2(648, 144)
+offset_left = 241.0
+offset_top = 9.0
+offset_right = 889.0
+offset_bottom = 153.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 42

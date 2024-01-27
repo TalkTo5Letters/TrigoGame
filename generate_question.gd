@@ -8,9 +8,9 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	print(easy_unitcir_QA.quadrantno())
-	print(easy_unitcir_QA.pos_or_neg())
-	easy_unitcir_QA.Easy_UnitCir_QA_vals()
-	easy_unitcir_QA.Easy_UnitCir_QA_coor_vals()
-	easy_unitcir_QA.Easy_UnitCir_QA_degrees_vals()
+#func _process(delta):
+	#print(easy_unitcir_QA.quadrantno())
+	#print(easy_unitcir_QA.pos_or_neg())
+	#easy_unitcir_QA.Easy_UnitCir_QA_vals()
+	#easy_unitcir_QA.Easy_UnitCir_QA_coor_vals()
+	#easy_unitcir_QA.Easy_UnitCir_QA_degrees_vals()

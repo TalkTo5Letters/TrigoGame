@@ -114,7 +114,14 @@ func Easy_UnitCir_QA_vals():
 		var choices = Easy_UnitCir_QA_dupl.values()[rng][0]
 		var answer = Easy_UnitCir_QA_dupl.values()[rng][1]
 		Easy_UnitCir_QA_dupl.erase(Easy_UnitCir_QA_dupl.keys()[rng])
-		print(question, choices, answer)
+		var quest_data = {
+			"type": 1,
+			"question": question,
+			"choices": choices,
+			"answer": answer,
+			"damage": 25,
+		}
+		return quest_data
 
 func Easy_UnitCir_QA_coor_vals():
 	if Easy_UnitCir_QA_coor_dupl.is_empty():

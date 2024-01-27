@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cbvx64mgfep1d"]
+[gd_scene load_steps=9 format=3 uid="uid://cbvx64mgfep1d"]
 
 [ext_resource type="Texture2D" uid="uid://dkk4lnkgrxcl6" path="res://graphics/icon.svg" id="1_0yrqt"]
 [ext_resource type="Script" path="res://scenes/levels/teleport.gd" id="2_cufdn"]
 [ext_resource type="PackedScene" uid="uid://b54d1hmerafoo" path="res://scenes/objects/tree.tscn" id="3_joutt"]
 [ext_resource type="PackedScene" uid="uid://cifiy8es1bwwv" path="res://scenes/characters/player/partner.tscn" id="4_eyvx6"]
 [ext_resource type="Script" path="res://scenes/levels/Node2D2.gd" id="5_ukpkr"]
+[ext_resource type="PackedScene" uid="uid://t3sr75pxjqim" path="res://scenes/characters/player/player.tscn" id="6_o8ocg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l52bx"]
 size = Vector2(119, 117)
@@ -44,6 +45,8 @@ platform_on_leave = 2
 
 [node name="Node2D2" type="Node2D" parent="."]
 script = ExtResource("5_ukpkr")
+
+[node name="Player" parent="." instance=ExtResource("6_o8ocg")]
 
 [connection signal="body_entered" from="StaticBody2D/Area2D" to="StaticBody2D/Area2D/CollisionShape2D/teleport" method="_on_area_2d_body_entered"]
 [connection signal="dialogue_pop_up" from="Node2D" to="Node2D2" method="_on_node_2d_dialogue_pop_up"]
