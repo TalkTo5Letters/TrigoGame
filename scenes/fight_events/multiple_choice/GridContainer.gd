@@ -1,6 +1,6 @@
 extends GridContainer
 
-var create_button = preload("res://scenes/fight_events/generate_button_multi.tscn")  
+var create_button = preload("res://scenes/fight_events/multiple_choice/generate_button_multi.tscn")  
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass

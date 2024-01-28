@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dxwvr5dm4xdve"]
 
-[ext_resource type="Script" path="res://scenes/fight_events/ColorRect.gd" id="1_o7cq7"]
+[ext_resource type="Script" path="res://scenes/fight_events/multiple_choice/ColorRect.gd" id="1_nd6rq"]
 
 [node name="CreateDroppableArea" type="Control"]
 layout_mode = 3
@@ -15,4 +15,4 @@ layout_mode = 0
 offset_right = 1082.0
 offset_bottom = 408.0
 color = Color(1, 1, 1, 0)
-script = ExtResource("1_o7cq7")
+script = ExtResource("1_nd6rq")

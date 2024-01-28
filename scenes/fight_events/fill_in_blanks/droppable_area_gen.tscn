@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1321f13dn51v"]
+
+[ext_resource type="Script" path="res://scenes/fight_events/fill_in_blanks/droppable_area_gen.gd" id="1_47tar"]
+
+[node name="DroppableAreaGen" type="GridContainer"]
+offset_left = 134.0
+offset_top = 183.0
+offset_right = 927.0
+offset_bottom = 383.0
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 40
+columns = 4
+script = ExtResource("1_47tar")

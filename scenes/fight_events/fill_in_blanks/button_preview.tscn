@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0t7wn82ufd1g"]
+
+[ext_resource type="Script" path="res://scenes/fight_events/fill_in_blanks/button_preview.gd" id="1_ut3m3"]
+
+[node name="button_preview" type="Button"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ut3m3")

@@ -5,7 +5,7 @@ var enemy_type = Global.enemy_type
 func _ready():
 	match enemy_type:
 		1:
-			hp = 50
+			hp = 200
 	$ProgressBar.value = hp
 	$ProgressBar.max_value = hp
 

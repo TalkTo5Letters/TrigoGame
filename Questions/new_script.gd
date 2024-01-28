@@ -14,22 +14,22 @@ var Easy_UnitCir_QA = {
 	"What is the radius of a unit circle?" : [["1", "2", "3", "314"], "1"],
 }
 var Easy_UnitCir_QA_coor = {
-	"What is the Coordinates of 30 degrees in a Unit Circle?" : [sqrt(3)/2, 1/2],
-	"What is the Coordinates of 45 degrees in a Unit Circle?" : [sqrt(2)/2, sqrt(2)/2],
-	"What is the Coordinates of 60 degrees in a Unit Circle?" : [1/2, sqrt(3)/2],
-	"What is the Coordinates of 90 degrees in a Unit Circle?" : [0, 1],
-	"What is the Coordinates of 120 degrees in a Unit Circle?": [-1/2, sqrt(3)/2],
-	"What is the Coordinates of 135 degrees in a Unit Circle?": [-sqrt(2)/2, sqrt(2)/2],
-	"What is the Coordinates of 150 degrees in a Unit Circle?": [-sqrt(3)/2, 1/2],
-	"What is the Coordinates of 180 degrees in a Unit Circle?": [-1, 0],
-	"What is the Coordinates of 210 degrees in a Unit Circle?": [-sqrt(3)/2, -1/2],
-	"What is the Coordinates of 225 degrees in a Unit Circle?": [-sqrt(2)/2, -sqrt(2)/2],
-	"What is the Coordinates of 240 degrees in a Unit Circle?": [-1/2, -sqrt(3)/2],
-	"What is the Coordinates of 270 degrees in a Unit Circle?": [0, -1],
-	"What is the Coordinates of 300 degrees in a Unit Circle?": [1/2, -sqrt(3)/2],
-	"What is the Coordinates of 315 degrees in a Unit Circle?": [sqrt(2)/2, -sqrt(2)/2],
-	"What is the Coordinates of 330 degrees in a Unit Circle?": [sqrt(3)/2, - 1/2],
-	"What is the Coordinates of 360 degrees in a Unit Circle?": [1, 0],
+	"What is the Coordinates of 30 degrees in a Unit Circle?" : ["sqrt(3)/2", "1/2"],
+	"What is the Coordinates of 45 degrees in a Unit Circle?" : ["sqrt(2)/2", "sqrt(2)/2"],
+	"What is the Coordinates of 60 degrees in a Unit Circle?" : ["1/2", "sqrt(3)/2"],
+	"What is the Coordinates of 90 degrees in a Unit Circle?" : ["0", "1"],
+	"What is the Coordinates of 120 degrees in a Unit Circle?": ["-1/2", "sqrt(3)/2"],
+	"What is the Coordinates of 135 degrees in a Unit Circle?": ["-sqrt(2)/2", "sqrt(2)/2"],
+	"What is the Coordinates of 150 degrees in a Unit Circle?": ["-sqrt(3)/2", "1/2"],
+	"What is the Coordinates of 180 degrees in a Unit Circle?": ["-1", "0"],
+	"What is the Coordinates of 210 degrees in a Unit Circle?": ["-sqrt(3)/2", "-1/2"],
+	"What is the Coordinates of 225 degrees in a Unit Circle?": ["-sqrt(2)/2", "-sqrt(2)/2"],
+	"What is the Coordinates of 240 degrees in a Unit Circle?": ["-1/2", "-sqrt(3)/2"],
+	"What is the Coordinates of 270 degrees in a Unit Circle?": ["0", "-1"],
+	"What is the Coordinates of 300 degrees in a Unit Circle?": ["1/2", "-sqrt(3)/2"],
+	"What is the Coordinates of 315 degrees in a Unit Circle?": ["sqrt(2)/2", "-sqrt(2)/2"],
+	"What is the Coordinates of 330 degrees in a Unit Circle?": ["sqrt(3)/2", "-1/2"],
+	"What is the Coordinates of 360 degrees in a Unit Circle?": ["1", "0"],
 }
 
 var Easy_UnitCir_QA_degrees = [
@@ -130,9 +130,18 @@ func Easy_UnitCir_QA_coor_vals():
 		var rng:int = rng.randi_range(1, Easy_UnitCir_QA_coor_dupl.size()) - 1
 		var question = Easy_UnitCir_QA_coor_dupl.keys()[rng]
 		var answer = Easy_UnitCir_QA_coor_dupl.values()[rng]
-		var choices = ["+", "-", "sqrt(2)/sqrt(2)", "sqrt(3)/2", "1/2", "0", "1"]
+		var choices = ["+", "-", "sqrt(2)/2", "sqrt(3)/2", "1/2", "0", "1"]
 		Easy_UnitCir_QA_coor_dupl.erase(Easy_UnitCir_QA_coor_dupl.keys()[rng])
+		var data = {
+			"type": 2,
+			"question": question,
+			"choices": choices,
+			"answer": answer,
+			"damage": 25,
+			"fill_type": "normal"
+		}
 		print(question, choices, answer)
+		return data
 	
 func Easy_UnitCir_QA_degrees_vals():
 	if Easy_UnitCir_QA_degrees_dupl.is_empty():

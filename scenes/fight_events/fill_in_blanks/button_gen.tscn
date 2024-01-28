@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cajehkro2gnsn"]
+
+[ext_resource type="Script" path="res://scenes/fight_events/fill_in_blanks/button_gen.gd" id="1_6bdwg"]
+
+[node name="ButtonGen" type="Button"]
+custom_minimum_size = Vector2(200, 72)
+size_flags_horizontal = 3
+script = ExtResource("1_6bdwg")

@@ -12,20 +12,18 @@ func _process(delta):
 		color = Color8(255, 255, 255, 40)
 	else:
 		color = Color8(255, 255, 255, 0)
-	pass
+		pass
+	
 
 func _can_drop_data(at_position, data):
-	
 	return true
 
 func _drop_data(at_position, data):
 	if data.get("text") == data.get("answer"):
 		EventHandler.emit_signal("answer_state", true)
-		print("correct answer")
 	else:
 		EventHandler.emit_signal("answer_state", false)
-		print("wrong answer")
-	pass
+	
 
 func _notification(what):
 	match what:

@@ -22,7 +22,6 @@ func check_answer_state(state):
 			return
 	if state == false:
 		print("wrong")
-		
 	$"..".reload()
 
 func kill_enemy():

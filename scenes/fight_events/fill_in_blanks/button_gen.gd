@@ -1,5 +1,5 @@
 extends Button
-var drag_preview = preload("res://scenes/fight_events/multiplechoice_drag_preview.tscn")
+var drag_preview = preload("res://scenes/fight_events/fill_in_blanks/button_preview.tscn")
 var answer
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,10 +12,8 @@ func _process(delta):
 func _get_drag_data(at_position):
 	var data = {
 		"text" = text,
-		"answer" = answer
 	}
 	var preview = drag_preview.instantiate()
 	preview.text = text
 	add_child(preview)
-	print(data.get("text"))
 	return data

@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://dym8r74u18e1n"]
+
+[ext_resource type="Script" path="res://scenes/fight_events/fill_in_blanks/choice_gen.gd" id="1_vu6dr"]
+
+[node name="choice_gen" type="GridContainer"]
+anchors_preset = -1
+anchor_left = -0.002
+anchor_right = -0.002
+offset_left = 0.16
+offset_top = 448.0
+offset_right = 1082.16
+offset_bottom = 627.0
+grow_horizontal = 0
+grow_vertical = 0
+columns = 4
+script = ExtResource("1_vu6dr")

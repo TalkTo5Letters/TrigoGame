@@ -13,10 +13,13 @@ func get_question(type):
 	print(type)
 	match type:
 		1: #unit circle qustion
-			var rng = rgen.randi_range(1, 1)
+			var rng = rgen.randi_range(1, 2)
 			print(rng)
 			match rng:
 				1: 
 					var quest_data = easy_unitcir_QA.Easy_UnitCir_QA_vals()
 					print(quest_data)
+					return quest_data
+				2:
+					var quest_data = easy_unitcir_QA.Easy_UnitCir_QA_coor_vals()
 					return quest_data

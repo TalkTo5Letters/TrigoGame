@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dplmjdfapcl04"]
-
-[ext_resource type="Script" path="res://scenes/fight_events/multiplechoice_drag_preview.gd" id="1_bqa2l"]
-
-[node name="Node2D" type="Button"]
-script = ExtResource("1_bqa2l")

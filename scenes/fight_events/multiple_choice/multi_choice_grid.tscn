@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bx6rl815iyve7"]
 
-[ext_resource type="Script" path="res://scenes/fight_events/GridContainer.gd" id="1_df3mn"]
-[ext_resource type="Script" path="res://scenes/fight_events/collision_placeholder.gd" id="1_kl678"]
+[ext_resource type="Script" path="res://scenes/fight_events/multiple_choice/multi_choice_grid.gd" id="1_w26db"]
+[ext_resource type="Script" path="res://scenes/fight_events/multiple_choice/GridContainer.gd" id="2_4xgke"]
 
 [node name="Node2D" type="Control"]
 layout_mode = 3
@@ -10,7 +10,7 @@ offset_left = 540.0
 offset_top = 360.0
 offset_right = 540.0
 offset_bottom = 360.0
-script = ExtResource("1_kl678")
+script = ExtResource("1_w26db")
 
 [node name="GridContainer" type="GridContainer" parent="."]
 layout_mode = 0
@@ -19,8 +19,4 @@ offset_top = 46.0
 offset_right = 539.0
 offset_bottom = 228.0
 columns = 2
-script = ExtResource("1_df3mn")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-
-[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("2_4xgke")
