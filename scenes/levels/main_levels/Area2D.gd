@@ -24,3 +24,4 @@ func _on_area_exited(body):
 				# Player exited on the right, teleport to the left
 				body.global_position.x = global_position.x - collision_shape_size.x
 	pass # Replace with function body.
+

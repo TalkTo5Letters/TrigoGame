@@ -44,3 +44,5 @@ func _physics_process(delta):
 	
 	Player_Animation.update_animation_parameters(input_buffer_readout, Input.is_action_pressed("sprint"))
 	Player_Animation.state_machine_state(input_buffer_readout)
+	if Input.is_action_just_pressed("Interact"):
+		$"../PlayerInput".interact_press()

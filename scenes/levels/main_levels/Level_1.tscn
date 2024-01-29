@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bhhsiesieayn7"]
+[gd_scene load_steps=10 format=3 uid="uid://bhhsiesieayn7"]
 
 [ext_resource type="PackedScene" uid="uid://t3sr75pxjqim" path="res://scenes/characters/player/player.tscn" id="1_cx0ug"]
 [ext_resource type="Texture2D" uid="uid://cuytdxdhrglxb" path="res://graphics/Tilemaps/lvl1tilemap.png" id="2_4t2ib"]
+[ext_resource type="PackedScene" uid="uid://ca7ndbpcqmaqx" path="res://scenes/objects/interactable.tscn" id="4_kmy5y"]
 [ext_resource type="Script" path="res://scenes/levels/main_levels/Area2D.gd" id="4_lf8u0"]
+[ext_resource type="Script" path="res://scenes/levels/main_levels/door_teleport.gd" id="4_v764y"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q06aq"]
 resource_name = "tiles_level1"
@@ -1352,5 +1354,13 @@ player = NodePath("../../Player")
 position = Vector2(6, -18)
 shape = SubResource("RectangleShape2D_dvdox")
 
+[node name="door_teleport" type="Node2D" parent="."]
+position = Vector2(5, -806)
+script = ExtResource("4_v764y")
+
+[node name="Interactable" parent="door_teleport" instance=ExtResource("4_kmy5y")]
+
 [connection signal="area_entered" from="TileMap/Area2D" to="Player" method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="TileMap/Area2D" to="TileMap/Area2D" method="_on_area_exited"]
+[connection signal="interactable_met" from="door_teleport/Interactable" to="TileMap/Area2D" method="_on_interactable_interactable_met"]
+[connection signal="interactable_met" from="door_teleport/Interactable" to="door_teleport" method="_on_interactable_interactable_met"]

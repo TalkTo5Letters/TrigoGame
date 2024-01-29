@@ -8,6 +8,8 @@ func _ready():
 	animation_tree = $"../AnimationTree" 
 	state_machine = animation_tree.get("parameters/playback")
 	update_animation_parameters(Vector2(0,1), false)
+	EventHandler.interactable.connect(interact_notif_show.bind())
+	EventHandler.interactable_end.connect(interact_notif_hide)
 	
 func update_animation_parameters(move_input : Vector2, sprint: bool):
 	if(move_input != Vector2.ZERO):
@@ -25,3 +27,11 @@ func state_machine_state(input_buffer_readout):
 		state_machine.travel("BlendTree")
 	else:
 		state_machine.travel("Idle")
+
+func interact_notif_show(identifier):
+	$"../PlayerInput".identifier = identifier
+	$"../InteractableSprite".visible = true
+
+func interact_notif_hide():
+	$"../PlayerInput".identifier = "none"
+	$"../InteractableSprite".visible = false

@@ -1,8 +1,10 @@
-[gd_scene load_steps=32 format=3 uid="uid://t3sr75pxjqim"]
+[gd_scene load_steps=34 format=3 uid="uid://t3sr75pxjqim"]
 
 [ext_resource type="Script" path="res://scenes/characters/player/PlayerMovement.gd" id="2_d58uu"]
 [ext_resource type="Texture2D" uid="uid://y51xqoeed847" path="res://graphics/char.png" id="3_pdnsa"]
 [ext_resource type="Script" path="res://scenes/characters/player/PlayerAnimation.gd" id="3_rnkib"]
+[ext_resource type="Script" path="res://scenes/characters/player/PlayerInput.gd" id="4_o07tj"]
+[ext_resource type="Texture2D" uid="uid://b5wjx1w70j1af" path="res://graphics/pixel-letter-f.png" id="4_u41i6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b3fnm"]
 size = Vector2(8, 9)
@@ -295,3 +297,14 @@ frame = 8
 
 [node name="PlayerAnimation" type="Node" parent="."]
 script = ExtResource("3_rnkib")
+
+[node name="InteractableSprite" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(10, -28)
+scale = Vector2(0.0203125, 0.0231068)
+texture = ExtResource("4_u41i6")
+region_enabled = true
+region_rect = Rect2(192, 32, 320, 384)
+
+[node name="PlayerInput" type="Node2D" parent="."]
+script = ExtResource("4_o07tj")
