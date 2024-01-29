@@ -1359,6 +1359,7 @@ position = Vector2(5, -806)
 script = ExtResource("4_v764y")
 
 [node name="Interactable" parent="door_teleport" instance=ExtResource("4_kmy5y")]
+position = Vector2(0, 3)
 
 [connection signal="area_entered" from="TileMap/Area2D" to="Player" method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="TileMap/Area2D" to="TileMap/Area2D" method="_on_area_exited"]
