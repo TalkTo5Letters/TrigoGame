@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cktla6g1mj0ir"]
+
+[sub_resource type="Theme" id="Theme_43bw2"]
+
+[node name="Node2D" type="Popup"]
+visible = true
+theme = SubResource("Theme_43bw2")

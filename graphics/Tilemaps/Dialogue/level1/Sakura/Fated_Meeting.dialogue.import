@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://b2bctp55rqvf8"
+path="res://.godot/imported/Fated_Meeting.dialogue-421894fc21aea78a2a5f1e0cf23611d7.tres"
+
+[deps]
+
+source_file="res://graphics/Tilemaps/Dialogue/level1/Sakura/Fated_Meeting.dialogue"
+dest_files=["res://.godot/imported/Fated_Meeting.dialogue-421894fc21aea78a2a5f1e0cf23611d7.tres"]
+
+[params]
+
+defaults=true

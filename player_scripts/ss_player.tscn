@@ -1,11 +1,12 @@
-[gd_scene load_steps=32 format=3 uid="uid://t3sr75pxjqim"]
+[gd_scene load_steps=32 format=3 uid="uid://d04uypd6pvbls"]
 
-[ext_resource type="Script" path="res://scenes/characters/player/PlayerMovement.gd" id="2_d58uu"]
-[ext_resource type="Texture2D" uid="uid://y51xqoeed847" path="res://graphics/char.png" id="3_pdnsa"]
-[ext_resource type="Script" path="res://scenes/characters/player/PlayerAnimation.gd" id="3_rnkib"]
+[ext_resource type="Script" path="res://player_scripts/ss_PlayerAnimation.gd" id="2_4x6d4"]
+[ext_resource type="Texture2D" uid="uid://y51xqoeed847" path="res://graphics/char.png" id="2_mhlgh"]
+[ext_resource type="Script" path="res://player_scripts/ss_movement.gd" id="3_51ol1"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_b3fnm"]
-size = Vector2(8, 9)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xhc1l"]
+radius = 6.0
+height = 26.0
 
 [sub_resource type="Animation" id="Animation_akio0"]
 resource_name = "Idle"
@@ -237,7 +238,7 @@ blend_mode = 1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tbctr"]
 
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ljjex"]
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_jb2a7"]
 states/BlendTree/node = SubResource("AnimationNodeBlendTree_qgqwo")
 states/BlendTree/position = Vector2(484.079, 108.184)
 states/End/position = Vector2(957.333, 84.2963)
@@ -247,23 +248,16 @@ states/Start/position = Vector2(200, 100.543)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_6i3r4"), "Idle", "BlendTree", SubResource("AnimationNodeStateMachineTransition_2m626"), "BlendTree", "Idle", SubResource("AnimationNodeStateMachineTransition_tbctr")]
 graph_offset = Vector2(-158.588, 7.35068)
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_om0n4"]
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_q0ywd"]
 particles_animation = true
 particles_anim_h_frames = 1
 particles_anim_v_frames = 1
 particles_anim_loop = true
 
-[node name="Player" type="CharacterBody2D" groups=["player"]]
-collision_layer = 7
-collision_mask = 7
-collision_priority = 2.0
-
-[node name="PlayerMovement" type="Node2D" parent="."]
-script = ExtResource("2_d58uu")
+[node name="Player" type="CharacterBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 3)
-shape = SubResource("RectangleShape2D_b3fnm")
+shape = SubResource("CapsuleShape2D_xhc1l")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2.5, 2.5)
@@ -273,7 +267,7 @@ position_smoothing_enabled = true
 libraries = {
 "": SubResource("AnimationLibrary_0eexa")
 }
-tree_root = SubResource("AnimationNodeStateMachine_ljjex")
+tree_root = SubResource("AnimationNodeStateMachine_jb2a7")
 anim_player = NodePath("../AnimationPlayer")
 parameters/BlendTree/TimeScale/scale = 1.0
 parameters/BlendTree/Walk/blend_position = Vector2(0.0092808, 0.194118)
@@ -287,11 +281,15 @@ speed_scale = 2.333
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-material = SubResource("CanvasItemMaterial_om0n4")
+material = SubResource("CanvasItemMaterial_q0ywd")
 position = Vector2(0, -7)
-texture = ExtResource("3_pdnsa")
+texture = ExtResource("2_mhlgh")
 hframes = 16
 frame = 8
 
 [node name="PlayerAnimation" type="Node" parent="."]
-script = ExtResource("3_rnkib")
+script = ExtResource("2_4x6d4")
+
+[node name="ss_movement" type="Node2D" parent="."]
+script = ExtResource("3_51ol1")
+speed = 6500

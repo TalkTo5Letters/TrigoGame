@@ -69,8 +69,14 @@ func quadrantno():
 	elif random_degree >= 271 && random_degree <= 359:
 		answer = "Quadrant 4"
 	var question: String = "What Quadrant is: " + str(random_degree) + " degrees in?"
-	var QA = [question, answer]
-	return QA
+	var data = {
+			"type": 1,
+			"question": question,
+			"choices": ["Quadrant 1", "Quadrant 2", "Quadrant 3", "Quadrant 4"],
+			"answer": answer,
+			"damage": 25,
+		}
+	return data
 
 func pos_or_neg() :
 	var random_axis = rng.randi_range(1, 2)
@@ -83,16 +89,16 @@ func pos_or_neg() :
 		random_degree = rng.randf_range(1, 359)
 	while true:
 		if random_degree >= 1 && random_degree <= 89:
-			array_answer = [1,1]
+			array_answer = ["Positive","Positive"]
 			break
 		elif random_degree >= 91 && random_degree <= 179:
-			array_answer = [0,1]
+			array_answer = ["Negative","Positive"]
 			break
 		elif random_degree >= 181 && random_degree <= 269:
-			array_answer = [0,0]
+			array_answer = ["Negative","Negative"]
 			break
 		elif random_degree >= 271 && random_degree <= 359:
-			array_answer = [1,0]
+			array_answer = ["Positive","Negative"]
 			break
 		else:
 			pass
@@ -103,7 +109,14 @@ func pos_or_neg() :
 		question = "Does the y axis in " + str(random_degree) + " degrees have a Negative or Positive Value?"
 		axis_answer = array_answer[1]
 	answer = [question, axis_answer]
-	return answer 
+	var data = {
+			"type": 1,
+			"question": question,
+			"choices": ["Positive","Negative"],
+			"answer": axis_answer,
+			"damage": 25,
+		}
+	return data
 	
 func Easy_UnitCir_QA_vals():
 	if Easy_UnitCir_QA_dupl.is_empty():

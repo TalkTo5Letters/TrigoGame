@@ -33,13 +33,13 @@ func generate_question(enemy_type):
 			multi_choice_gen = multi_choice_gen_scene.instantiate()
 			area_drop_gen = area_drop_gen_scene.instantiate()
 			multi_choice_gen.data = quest_data
+			print(quest_data)
 			add_child(area_drop_gen)
 			add_child(multi_choice_gen)
 		2:
 			fill_in_gen = fill_in_gen_scene.instantiate()
 			fill_in_gen.data = quest_data
 			add_child(fill_in_gen)
-			
 			
 func reload():
 	remove_child(area_drop_gen)

@@ -1,14 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://don26gpb5xolw"]
+[gd_scene load_steps=12 format=3 uid="uid://cbvx64mgfep1d"]
 
-[ext_resource type="Texture2D" uid="uid://dkk4lnkgrxcl6" path="res://graphics/icon.svg" id="1_0yrqt"]
-[ext_resource type="Script" path="res://scenes/levels/teleport.gd" id="2_cufdn"]
-[ext_resource type="PackedScene" uid="uid://b54d1hmerafoo" path="res://scenes/objects/tree.tscn" id="3_joutt"]
-[ext_resource type="PackedScene" uid="uid://k1mdovrk8cr7" path="res://scenes/characters/partner/partner.tscn" id="4_6kuqe"]
-[ext_resource type="Script" path="res://scenes/levels/Node2D2.gd" id="5_ukpkr"]
-[ext_resource type="PackedScene" uid="uid://t3sr75pxjqim" path="res://scenes/characters/player/player.tscn" id="6_o8ocg"]
-[ext_resource type="Script" path="res://scenes/levels/fight_scene.gd" id="7_fh3sg"]
-[ext_resource type="Script" path="res://scenes/characters/player/player.gd" id="7_wu3wp"]
-[ext_resource type="PackedScene" uid="uid://bf48yrxyt7h25" path="res://scenes/characters/enemy1/enemy1.tscn" id="8_tv7ec"]
+[ext_resource type="Texture2D" uid="uid://dkk4lnkgrxcl6" path="res://graphics/icon.svg" id="1_w0lke"]
+[ext_resource type="Script" path="res://scenes/levels/teleport.gd" id="2_flntm"]
+[ext_resource type="PackedScene" uid="uid://b54d1hmerafoo" path="res://scenes/objects/tree.tscn" id="3_8luq5"]
+[ext_resource type="PackedScene" uid="uid://k1mdovrk8cr7" path="res://scenes/characters/partner/partner.tscn" id="4_was5n"]
+[ext_resource type="Script" path="res://scenes/levels/Node2D2.gd" id="5_lgh7f"]
+[ext_resource type="PackedScene" uid="uid://t3sr75pxjqim" path="res://scenes/characters/player/player.tscn" id="6_i3ujp"]
+[ext_resource type="Script" path="res://scenes/characters/player/player.gd" id="7_rp0ea"]
+[ext_resource type="PackedScene" uid="uid://bf48yrxyt7h25" path="res://scenes/characters/enemy1/enemy1.tscn" id="8_qwvuh"]
+[ext_resource type="Script" path="res://scenes/levels/fight_scene.gd" id="9_d62rt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l52bx"]
 size = Vector2(119, 117)
@@ -23,7 +23,7 @@ position = Vector2(145, 85)
 disable_mode = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
-texture = ExtResource("1_0yrqt")
+texture = ExtResource("1_w0lke")
 region_rect = Rect2(45.5, 34.5, 30, 26)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
@@ -37,21 +37,21 @@ position = Vector2(-0.5, -64)
 shape = SubResource("RectangleShape2D_pmj4v")
 
 [node name="teleport" type="Node" parent="StaticBody2D/Area2D/CollisionShape2D"]
-script = ExtResource("2_cufdn")
+script = ExtResource("2_flntm")
 
-[node name="Tree" parent="." instance=ExtResource("3_joutt")]
+[node name="Tree" parent="." instance=ExtResource("3_8luq5")]
 
-[node name="Node2D" parent="." instance=ExtResource("4_6kuqe")]
+[node name="Node2D" parent="." instance=ExtResource("4_was5n")]
 position = Vector2(-204, 122)
 
 [node name="Node2D2" type="Node2D" parent="."]
-script = ExtResource("5_ukpkr")
+script = ExtResource("5_lgh7f")
 
-[node name="Player" parent="." instance=ExtResource("6_o8ocg")]
+[node name="Player" parent="." instance=ExtResource("6_i3ujp")]
 position = Vector2(-111, -31)
-script = ExtResource("7_wu3wp")
+script = ExtResource("7_rp0ea")
 
-[node name="enemy1" parent="." instance=ExtResource("8_tv7ec")]
+[node name="enemy1" parent="." instance=ExtResource("8_qwvuh")]
 position = Vector2(120, 223)
 
 [node name="fight_scene" type="Control" parent="."]
@@ -59,7 +59,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("7_fh3sg")
+script = ExtResource("9_d62rt")
 
 [connection signal="body_entered" from="StaticBody2D/Area2D" to="StaticBody2D/Area2D/CollisionShape2D/teleport" method="_on_area_2d_body_entered"]
 [connection signal="dialogue_pop_up" from="Node2D" to="Node2D2" method="_on_node_2d_dialogue_pop_up"]
