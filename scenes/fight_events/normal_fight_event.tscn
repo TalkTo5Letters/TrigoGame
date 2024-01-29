@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://scenes/fight_events/Button2.gd" id="5_io6vd"]
 [ext_resource type="Script" path="res://scenes/fight_events/check_ans.gd" id="6_wq3mh"]
 [ext_resource type="Script" path="res://scenes/fight_events/enemy_stat.gd" id="7_pmpr5"]
-[ext_resource type="AudioStream" uid="uid://d0yrsyu84klmy" path="res://Music/Josh Hutcherson Whistle.mp3" id="8_qnuew"]
+[ext_resource type="AudioStream" uid="uid://c4crn0gldwt8u" path="res://Music/Insidges.ogg" id="8_sxko4"]
 
 [node name="normal_fight_event" type="Control"]
 layout_mode = 3
@@ -71,5 +71,5 @@ offset_bottom = 27.0
 max_value = 250.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_qnuew")
+stream = ExtResource("8_sxko4")
 autoplay = true

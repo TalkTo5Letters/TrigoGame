@@ -1,6 +1,9 @@
 extends Node
-
-var rng = RandomNumberGenerator.new()
+var Easy_UnitCir_QA_dupl = []
+var Easy_UnitCir_QA_coor_dupl = []
+var Easy_UnitCir_QA_degrees_dupl = []
+var rng 
+	
 var Easy_UnitCir_QA = {
 	"What is the length of the unit circle?" : [["pi", "pi/2", "2pi", "3pi/4"], "2pi"],
 	"Trigonometry is the study of what?" : [["History", "Sides and Angles of Triangles", "Shapes", "Love"], "Sides and Angles of Triangles"],
@@ -51,10 +54,12 @@ var Easy_UnitCir_QA_degrees = [
 	[["1", "0"],  360],
 ]
 
-var Easy_UnitCir_QA_dupl = Easy_UnitCir_QA.duplicate()
-var Easy_UnitCir_QA_coor_dupl = Easy_UnitCir_QA_coor.duplicate()
-var Easy_UnitCir_QA_degrees_dupl = Easy_UnitCir_QA_degrees.duplicate()
-
+func _ready():
+	Easy_UnitCir_QA_dupl = Easy_UnitCir_QA.duplicate(true)
+	Easy_UnitCir_QA_coor_dupl = Easy_UnitCir_QA_coor.duplicate(true)
+	Easy_UnitCir_QA_degrees_dupl = Easy_UnitCir_QA_degrees.duplicate(true)
+	rng = RandomNumberGenerator.new()
+	
 func quadrantno():
 	var random_degree = rng.randi_range(1, 359)
 	var answer: String
@@ -120,48 +125,52 @@ func pos_or_neg() :
 	
 func Easy_UnitCir_QA_vals():
 	if Easy_UnitCir_QA_dupl.is_empty():
-		print("Easy_UnitCir_QA_dupl is empty")
-	else:
-		var rng:int = rng.randi_range(1, Easy_UnitCir_QA_dupl.size()) - 1
-		var question = Easy_UnitCir_QA_dupl.keys()[rng]
-		var choices = Easy_UnitCir_QA_dupl.values()[rng][0]
-		var answer = Easy_UnitCir_QA_dupl.values()[rng][1]
-		Easy_UnitCir_QA_dupl.erase(Easy_UnitCir_QA_dupl.keys()[rng])
-		var quest_data = {
-			"type": 1,
-			"question": question,
-			"choices": choices,
-			"answer": answer,
-			"damage": 25,
-		}
-		return quest_data
+		Easy_UnitCir_QA_dupl = Easy_UnitCir_QA.duplicate()
+	var rng:int = rng.randi_range(1, Easy_UnitCir_QA_dupl.size()) - 1
+	var question = Easy_UnitCir_QA_dupl.keys()[rng]
+	var choices = Easy_UnitCir_QA_dupl.values()[rng][0]
+	var answer = Easy_UnitCir_QA_dupl.values()[rng][1]
+	Easy_UnitCir_QA_dupl.erase(Easy_UnitCir_QA_dupl.keys()[rng])
+	var quest_data = {
+		"type": 1,
+		"question": question,
+		"choices": choices,
+		"answer": answer,
+		"damage": 25,
+	}
+	return quest_data
 
 func Easy_UnitCir_QA_coor_vals():
 	if Easy_UnitCir_QA_coor_dupl.is_empty():
-		print("Easy_UnitCir_QA_coor_dupl is empty")
-	else:
-		var rng:int = rng.randi_range(1, Easy_UnitCir_QA_coor_dupl.size()) - 1
-		var question = Easy_UnitCir_QA_coor_dupl.keys()[rng]
-		var answer = Easy_UnitCir_QA_coor_dupl.values()[rng]
-		var choices = ["+", "-", "sqrt(2)/2", "sqrt(3)/2", "1/2", "0", "1"]
-		Easy_UnitCir_QA_coor_dupl.erase(Easy_UnitCir_QA_coor_dupl.keys()[rng])
-		var data = {
-			"type": 2,
-			"question": question,
-			"choices": choices,
-			"answer": answer,
-			"damage": 25,
-			"fill_type": "normal"
-		}
-		print(question, choices, answer)
-		return data
+		Easy_UnitCir_QA_coor_dupl = Easy_UnitCir_QA_coor.duplicate()
+	var rng:int = rng.randi_range(1, Easy_UnitCir_QA_coor_dupl.size()) - 1
+	var question = Easy_UnitCir_QA_coor_dupl.keys()[rng]
+	var answer = Easy_UnitCir_QA_coor_dupl.values()[rng]
+	var choices = ["+", "-", "sqrt(2)/2", "sqrt(3)/2", "1/2", "0", "1"]
+	Easy_UnitCir_QA_coor_dupl.erase(Easy_UnitCir_QA_coor_dupl.keys()[rng])
+	var data = {
+		"type": 2,
+		"question": question,
+		"choices": choices,
+		"answer": answer,
+		"damage": 25,
+		"fill_type": "normal"
+	}
+	print(question, choices, answer)
+	return data
 	
 func Easy_UnitCir_QA_degrees_vals():
 	if Easy_UnitCir_QA_degrees_dupl.is_empty():
-		print("Easy_UnitCir_QA_degrees_dupl is empty")
-	else:
-		var rng:int = rng.randi_range(1, Easy_UnitCir_QA_degrees_dupl.size()) - 1
-		var question = "What degree is the following element? " + str(Easy_UnitCir_QA_degrees_dupl[rng][0])
-		var answer = Easy_UnitCir_QA_degrees_dupl[rng][1]
-		Easy_UnitCir_QA_degrees_dupl.remove_at(rng)
-		print(question, answer)
+		Easy_UnitCir_QA_degrees_dupl = Easy_UnitCir_QA_degrees.duplicate()
+	print(Easy_UnitCir_QA_degrees_dupl)
+	var rng:int = rng.randi_range(0, Easy_UnitCir_QA_degrees_dupl.size() - 1)
+	var question = "What degree is the following element? " + str(Easy_UnitCir_QA_degrees_dupl[rng][0])
+	var answer = str(Easy_UnitCir_QA_degrees_dupl[rng][1])
+	Easy_UnitCir_QA_degrees_dupl.remove_at(rng)
+	var data = {
+		"type": 3,
+		"question": question,
+		"answer": answer,
+		"damage": 25,
+	}
+	return data
